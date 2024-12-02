@@ -31,7 +31,7 @@ router.get("/:id", authentication, (req, res) => {
 });
 
 router.post("/addUser", authentication, async (req, res) => {
-  const { id, first_name, last_name, email, gender, ip_address } = req.body;
+  const { id, first_name, last_name, email, gender, dateOfBirth, jobTitle, department, nationality, maritalStatus, address, salary, mobileNumber } = req.body;
   if (!first_name ||
     !last_name ||
     !email ||
