@@ -31,7 +31,7 @@ router.get("/:id", authentication, (req, res) => {
 });
 
 router.post("/addUser", authentication, async (req, res) => {
-  const { id, first_name, last_name, email, gender, dateOfBirth, jobTitle, department, nationality, maritalStatus, address, salary, mobileNumber } = req.body;
+  const { id, first_name, last_name, email, gender, dateOfBirth, jobTitle, department, nationality, maritalStatus, address, salary, mobileNumber, profilePicture } = req.body;
   if (!first_name ||
     !last_name ||
     !email ||
@@ -43,6 +43,7 @@ router.post("/addUser", authentication, async (req, res) => {
     !maritalStatus ||
     !address ||
     !salary ||
+    !profilePicture ||
     !mobileNumber) {
     return res.status(400).json({ error: "All fields are required." });
   }
