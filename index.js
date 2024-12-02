@@ -4,7 +4,7 @@ const app = express();
 const port = process.env.PORT || 4500;
 const path = require("path");
 const adminRoutes = require("./routes/admin");
-const userRoutes = require("./routes/empoyees");
+const empRoutes = require("./routes/empoyees");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth");
 const jwt = require("jsonwebtoken");
@@ -35,7 +35,7 @@ app.use(express.json());
 
 app.use(adminRoutes);
 app.use("/api/auth/", authRoutes);
-app.use("/users", userRoutes);
+app.use("/employee", empRoutes);
 
 app.use(express.urlencoded({ extended: true }));
 

@@ -19,7 +19,7 @@ router.get("/", authentication, async (req, res) => {
   }
 });
 
-router.get("/:id", authentication, (req, res) => {
+router.get("/getEmployee/:id", authentication, (req, res) => {
   const id = req.params.id;
   const user = usersData?.find((i) => i?.id === parseInt(id));
   console.log("RandomIP", RandomIP());
@@ -30,7 +30,7 @@ router.get("/:id", authentication, (req, res) => {
   }
 });
 
-router.post("/addUser", authentication, async (req, res) => {
+router.post("/create", authentication, async (req, res) => {
   const { id, first_name, last_name, email, gender, dateOfBirth, jobTitle, department, nationality, maritalStatus, address, salary, mobileNumber, profilePicture } = req.body;
   if (!first_name ||
     !last_name ||
@@ -77,7 +77,7 @@ router.post("/addUser", authentication, async (req, res) => {
   }
 });
 
-router.put("/:id", authentication, async (req, res) => {
+router.put("/update/:id", authentication, async (req, res) => {
   const id = req.params.id;
   try {
     const user = await User.findById(id);
@@ -93,7 +93,7 @@ router.put("/:id", authentication, async (req, res) => {
   }
 });
 
-router.delete("/:id", authentication, (req, res) => {
+router.delete("/delete/:id", authentication, (req, res) => {
   const id = req.params.id;
   User.findByIdAndDelete(id)
     .then(() => {
