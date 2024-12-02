@@ -21,7 +21,7 @@ router.get("/", authentication, async (req, res) => {
 
 router.get("/getEmployee/:id", authentication, (req, res) => {
   const id = req.params.id;
-  const user = User?.find((i) => i?.id === parseInt(id));
+  const user = User.findById(id);
   console.log("RandomIP", RandomIP());
   if (user) {
     res.json(user);
@@ -47,7 +47,7 @@ router.post("/create", authentication, async (req, res) => {
     !mobileNumber) {
     return res.status(400).json({ error: "All fields are required." });
   }
-  if (User?.find((i) => i?.email === email && i?.first_name === first_name)) {
+  if (usersData?.find((i) => i?.email === email && i?.first_name === first_name)) {
     return res.status(400).json({ error: "User already exists." });
   }
 
