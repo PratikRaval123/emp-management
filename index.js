@@ -13,7 +13,7 @@ const cors = require("cors");
 const mongoUri = "mongodb://localhost:27017/testing";
 
 const logerMiddleware = (req, res, next) => {
-  console.log(`${req.method} ${req.url}`);
+  // console.log(`${req.method} ${req.url}`);
   next();
 };
 
