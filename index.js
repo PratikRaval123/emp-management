@@ -13,7 +13,7 @@ const cors = require("cors");
 const mongoUri = "mongodb://localhost:27017/testing";
 
 const logerMiddleware = (req, res, next) => {
-  console.log(`${req.method} ${req.url}`);
+  // console.log(`${req.method} ${req.url}`);
   next();
 };
 
@@ -44,7 +44,7 @@ app.use((req, res, next) => {
 });
 
 app.use((err, req, res, next) => {
-  console.error(err.stack);
+  // console.error(err.stack);
   res.status(500).send("Something went wrong!");
 });
 
