@@ -21,10 +21,10 @@ router.get("/", authentication, async (req, res) => {
 
 router.get("/getEmployee/:id", authentication, (req, res) => {
   const id = req.params.id;
-  // console.log(id, 'id')
+  console.log(id, 'id')
   const user = User.findById(id);
-  // console.log(user, 'user')
-  // console.log("RandomIP", RandomIP());
+  console.log(user, 'user')
+  console.log("RandomIP", RandomIP());
   if (user) {
     const data = User();
     res.json(data);

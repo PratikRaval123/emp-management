@@ -23,7 +23,7 @@ exports.login = async (req, res) => {
 };
 
 exports.register = async (req, res) => {
-  // console.log(req.body);
+  console.log(req.body);
   const { username, email, password } = req.body;
   try {
     const userExists = await User.findOne({ email });
@@ -44,7 +44,7 @@ exports.logout = async (req, res) => {
 
 exports.me = async (req, res, next) => {
   try {
-    // console.log(req.user, "req.user");
+    console.log(req.user, "req.user");
 
     if (req.user.id) {
       const user = await User.findById(req.user.id);
