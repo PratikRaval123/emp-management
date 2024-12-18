@@ -4,7 +4,7 @@ const app = express();
 const port = process.env.PORT || 4500;
 const path = require("path");
 const adminRoutes = require("./routes/admin");
-const userRoutes = require("./routes/empoyees");
+const empRoutes = require("./routes/empoyees");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth");
 const jwt = require("jsonwebtoken");
@@ -13,7 +13,7 @@ const cors = require("cors");
 const mongoUri = "mongodb://localhost:27017/testing";
 
 const logerMiddleware = (req, res, next) => {
-  console.log(`${req.method} ${req.url}`);
+  // console.log(`${req.method} ${req.url}`);
   next();
 };
 
@@ -35,7 +35,7 @@ app.use(express.json());
 
 app.use(adminRoutes);
 app.use("/api/auth/", authRoutes);
-app.use("/users", userRoutes);
+app.use("/employee", empRoutes);
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -44,7 +44,7 @@ app.use((req, res, next) => {
 });
 
 app.use((err, req, res, next) => {
-  console.error(err.stack);
+  // console.error(err.stack);
   res.status(500).send("Something went wrong!");
 });
 
